@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
+
+  --color-cream: #F5EDD8;
+  --color-parchment: #E8D5A3;
+  --color-bamboo-dark: #2C1810;
+  --color-warm-black: #1A0F0A;
+  --color-midnight: #0D0A1A;
+  --color-gold: #D4A853;
+  --color-gold-light: #F0C96A;
+  --color-white-silk: #FDFAF4;
+}
+
+:root {
+  --cream:        #F5EDD8;
+  --parchment:    #E8D5A3;
+  --bamboo-dark:  #2C1810;
+  --warm-black:   #1A0F0A;
+  --midnight:     #0D0A1A;
+  --gold:         #D4A853;
+  --gold-light:   #F0C96A;
+  --white-silk:   #FDFAF4;
+  
+  --grid-gap:     6px;
+  --panel-radius: 4px;
+  
+  --ease-spring:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-silk:    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--warm-black);
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Custom scrollbar to match theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--parchment);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bamboo-dark);
+}
+
+/* Utilities for GSAP / grid */
+.headline-letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.panda-panel {
+  will-change: transform;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--white-silk) 0%,
+    var(--gold) 50%,
+    var(--white-silk) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-anim 2s linear infinite;
+}
+
+@keyframes shimmer-anim {
+  to {
+    background-position: 200% center;
+  }
+}
